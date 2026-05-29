@@ -1,12 +1,14 @@
 :root {
-      --forest: #1f5c34;
-      --forest-dark: #174229;
-      --forest-deep: #123c2f;
-      --ink: #1a1a1a;
+      --orange: #d4500a;
+      --orange-dark: #b84408;
+      --orange-light: #f97316;
+      --black: #111111;
+      --off-black: #1c1c1c;
       --line: #e5e7eb;
     }
-    body { background: #ffffff; }
-    .fox-card { background: #ffffff; box-shadow: 0 12px 32px rgba(18, 60, 47, 0.08); }
-    .fox-outline { border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(10, 32, 24, 0.05); }
-    .fox-chip { background: rgba(31, 92, 52, 0.08); color: var(--forest); }
-    .section-divider { background: linear-gradient(90deg, transparent, rgba(31,92,52,0.22), transparent); height: 1px; }
+    body { background: #ffffff; color: #111111; }
+    .fox-outline { border: 1px solid #e5e7eb; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .section-divider { background: linear-gradient(90deg, transparent, rgba(212,80,10,0.3), transparent); height: 2px; }
+    .trust-bar { background: #111111; }
+    nav { background: #ffffff; border-bottom: 3px solid #d4500a; }
+    footer { background: #111111; }
