@@ -4,23 +4,6 @@
     .section-divider { background: linear-gradient(90deg, transparent, rgba(212,80,10,0.35), transparent); height: 2px; }
     nav { background: #ffffff; border-bottom: 3px solid #d4500a; }
     footer { background: #111111; }
-
-    /* Hero banner */
-    .hero-banner {
-      position: relative;
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&fit=crop');
-      background-size: cover;
-      background-position: center 40%;
-      filter: brightness(0.38);
-      z-index: 0;
-    }
+    .hero-banner { position: relative; min-height: 520px; display: flex; align-items: center; overflow: hidden; }
+    .hero-banner::before { content: ''; position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&fit=crop'); background-size: cover; background-position: center 40%; filter: brightness(0.38); z-index: 0; }
     .hero-banner > * { position: relative; z-index: 1; }
