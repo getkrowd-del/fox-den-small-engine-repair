@@ -15,6 +15,7 @@
   
   
   <meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4427/sheet-data">
+  <meta name="lp-form-webhook" content="https://paymegpt.com/api/webhooks/flow/3344/be37df03367f2955eca70be2780fa587a41876838ad27505ab26e01c2d93035e">
 
 <!-- SEO Meta Tags -->
 <title>Fox Den Small Engine Repairs | Holland Patent, NY</title>
@@ -252,18 +253,9 @@
             </a>
           </div>
           <div class="mt-10 grid gap-3 sm:grid-cols-3">
-            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15">
-              <p class="text-sm font-bold text-orange-300">⚡ Quick Turnaround</p>
-              <p class="mt-1 text-xs text-gray-300">Back in service fast.</p>
-            </div>
-            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15">
-              <p class="text-sm font-bold text-orange-300">🚚 Free Pickup &amp; Delivery</p>
-              <p class="mt-1 text-xs text-gray-300">Convenient &amp; hassle-free.</p>
-            </div>
-            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15">
-              <p class="text-sm font-bold text-orange-300">📱 Call, Text, or Message</p>
-              <p class="mt-1 text-xs text-gray-300">Local &amp; responsive.</p>
-            </div>
+            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15"><p class="text-sm font-bold text-orange-300">⚡ Quick Turnaround</p><p class="mt-1 text-xs text-gray-300">Back in service fast.</p></div>
+            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15"><p class="text-sm font-bold text-orange-300">🚚 Free Pickup &amp; Delivery</p><p class="mt-1 text-xs text-gray-300">Convenient &amp; hassle-free.</p></div>
+            <div class="rounded-2xl bg-white/10 backdrop-blur-sm px-4 py-3 border border-white/15"><p class="text-sm font-bold text-orange-300">📱 Call, Text, or Message</p><p class="mt-1 text-xs text-gray-300">Local &amp; responsive.</p></div>
           </div>
         </div>
       </div>
@@ -272,18 +264,9 @@
     <section class="bg-white">
       <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-12">
         <div class="grid gap-4 sm:grid-cols-3">
-          <div class="rounded-3xl bg-orange-50 border border-orange-200 p-6">
-            <p class="text-sm font-extrabold uppercase tracking-widest text-[#d4500a]">Spring &amp; Summer</p>
-            <p class="mt-2 font-bold text-[#111111]">Mowers, trimmers, chainsaws &amp; pressure washers — tuned and ready for the season.</p>
-          </div>
-          <div class="rounded-3xl bg-gray-50 border border-gray-200 p-6">
-            <p class="text-sm font-extrabold uppercase tracking-widest text-[#111111]">❄️ Off-Season Services</p>
-            <p class="mt-2 font-bold text-[#111111]">Snowblower &amp; snowmobile service before winter. Don't wait until the first storm.</p>
-          </div>
-          <div class="rounded-3xl bg-[#111111] p-6">
-            <p class="text-sm font-extrabold uppercase tracking-widest text-[#f97316]">Year-Round</p>
-            <p class="mt-2 font-bold text-white">Go-karts, dirt bikes, rototillers, leaf blowers &amp; other yard toys — we like a challenge.</p>
-          </div>
+          <div class="rounded-3xl bg-orange-50 border border-orange-200 p-6"><p class="text-sm font-extrabold uppercase tracking-widest text-[#d4500a]">Spring &amp; Summer</p><p class="mt-2 font-bold text-[#111111]">Mowers, trimmers, chainsaws &amp; pressure washers — tuned and ready for the season.</p></div>
+          <div class="rounded-3xl bg-gray-50 border border-gray-200 p-6"><p class="text-sm font-extrabold uppercase tracking-widest text-[#111111]">❄️ Off-Season Services</p><p class="mt-2 font-bold text-[#111111]">Snowblower &amp; snowmobile service before winter. Don't wait until the first storm.</p></div>
+          <div class="rounded-3xl bg-[#111111] p-6"><p class="text-sm font-extrabold uppercase tracking-widest text-[#f97316]">Year-Round</p><p class="mt-2 font-bold text-white">Go-karts, dirt bikes, rototillers, leaf blowers &amp; other yard toys — we like a challenge.</p></div>
         </div>
       </div>
     </section>
@@ -437,8 +420,13 @@
       btn.disabled = true;
       var formData = {};
       new FormData(this).forEach(function(val, key) { formData[key] = val; });
-      fetch('https://paymegpt.com/api/webhooks/flow/3344/be37df03367f2955eca70be2780fa587a41876838ad27505ab26e01c2d93035e', {
+
+      // Use no-cors mode to avoid CORS block from GitHub Pages
+      // The webhook will still receive the data even without a readable response
+      var WEBHOOK = 'https://paymegpt.com/api/webhooks/flow/3344/be37df03367f2955eca70be2780fa587a41876838ad27505ab26e01c2d93035e';
+      fetch(WEBHOOK, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contactName: formData['Name'] || '', contactEmail: formData['Email'] || '', contactPhone: formData['Phone'] || '', data: formData })
       })
